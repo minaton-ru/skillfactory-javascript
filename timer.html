@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <title>Таймер</title>
+   <link rel="stylesheet" href="timer.css">
+ </head>
+ <body>
+   <h1 class="countdown-title">Таймер</h1>
+<section class="countdown">
+  <div class="countdown-number">
+    <p class="minutes countdown-time"></p>
+    <p class="countdown-text">Минуты</p>
+  </div>
+  <div class="countdown-number">
+    <p class="seconds countdown-time"></p>
+    <p class="countdown-text">Секунды</p>
+  </div>
+</section>
+
+<form>
+ <input type="text" id="inputminutes" placeholder="2"/>
+  <input type="text" id="inputseconds" placeholder="10"/>
+</form>
+ <button class="inputminutes">Ввести минуты и секунды</button>
+
+<div>
+  <button class="plus">plus</button>
+  <button class="minus">minus</button>
+  <button class="start">Запуск</button>
+  <button class="stop">Стоп</button>
+</div>
+
+<div class="message">
+  
+</div>
+
+<script src="timer.js"></script>
+ </body>
+</html>
