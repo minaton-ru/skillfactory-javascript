@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>PWS C3 cookies: запомнить город</title>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  </head>
+<body>
+<div id="noCity">
+<form>  
+<input type="text" id="inputCity" placeholder="Введите название города"></input>
+</form>
+<button id="inputCityButton">Записать город в Cookies</button>
+</div>
+<div id="yesCity">
+<p class="yesCityMessage"></p>
+<button onclick="localStorage.removeItem('userCity');inputCity.value=''">Очистить город из Cookies (после нажатия перезагрузите страницу)</button>
+</div>
+<script>
+  function checkCityCookie() {
+    let userCity = localStorage.getItem('userCity');
+    if (userCity != null) {
+      $("#noCity").hide();
+      const yesCityMessage = document.querySelector('.yesCityMessage');
+      yesCityMessage.textContent = `Ваш город - ${userCity}`;
+      console.log(userCity);
+    }
+    else {
+      inputCityButton.onclick = () => {
+      localStorage.setItem('userCity', inputCity.value)
+      console.log(localStorage.getItem('userCity'));
+      };
+    }
+  }
+$(document).ready(checkCityCookie);
+</script>
+</body>
+</html>
