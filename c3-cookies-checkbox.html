@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>PWS C3 cookies: запомнить отмеченный чекбокс</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  </head>
+<body>
+<div class="form-check">
+<input class="form-check-input" id="phone" type="checkbox"><label class="form-check-label" for="phone">Телефон</label></div>
+<div class="form-check"><input class="form-check-input" id="email" type="checkbox"><label class="form-check-label" for="email">Почта</label></div>
+<div class="form-check"><input class="form-check-input" id="adress" type="checkbox"><label class="form-check-label" for="adress">Адрес</label></div>
+<div class="form-check"><input class="form-check-input" id="age" type="checkbox"><label class="form-check-label" for="age">Возраст</label></div>
+<div class="form-check"><input class="form-check-input" id="position" type="checkbox"><label class="form-check-label" for="position">Должность</label></div>
+<div class="form-check"><input class="form-check-input" id="surname" type="checkbox"><label class="form-check-label" for="surname">Фамилия</label></div>
+</div>
+<div></div><button onclick="saveCheckboxCookie()" class="btn btn-success">Сохранить чекбоксы</button></div>
+<div><button onclick="localStorage.clear()" class="btn btn-danger">Очистить чекбоксы (после нажатия перезагрузите страницу)</button></div>
+
+<script>
+  phoneCheckbox = document.getElementById('phone');
+  emailCheckbox = document.getElementById('email');
+  adressCheckbox = document.getElementById('adress');
+  ageCheckbox = document.getElementById('age');
+  positionCheckbox = document.getElementById('position');
+  surnameCheckbox = document.getElementById('surname');
+  function saveCheckboxCookie() {
+    if (phoneCheckbox.checked) {
+      localStorage.setItem('userPhone', 'yes');
+    }
+    else {}
+    if (emailCheckbox.checked) {
+      localStorage.setItem('userEmail', 'yes');
+    }
+    else {}
+    if (adressCheckbox.checked) {
+      localStorage.setItem('userAdress', 'yes');
+    }
+    else {}
+    if (ageCheckbox.checked) {
+      localStorage.setItem('userAge', 'yes');
+    }
+    else {}
+    if (positionCheckbox.checked) {
+      localStorage.setItem('userPosition', 'yes');
+    }
+    else {}
+    if (surnameCheckbox.checked) {
+      localStorage.setItem('userSurname', 'yes');
+    }
+    else {}
+    console.log( phoneCheckbox.checked );
+    console.log( localStorage.getItem('userPhone') );
+    console.log( surnameCheckbox.checked );
+  }
+  function setCheckboxes() {
+    let userPhone = localStorage.getItem('userPhone');
+    let userEmail = localStorage.getItem('userEmail');
+    let userAdress = localStorage.getItem('userAdress');
+    let userAge = localStorage.getItem('userAge');
+    let userPosition = localStorage.getItem('userPosition');
+    let userSurname = localStorage.getItem('userSurname');
+    if (localStorage.getItem('userPhone') != null) {
+      phoneCheckbox.checked = true;
+      phoneCheckbox.disabled = 1;
+    }
+    else {}
+    if (localStorage.getItem('userEmail') != null) {
+      emailCheckbox.checked = true;
+      emailCheckbox.disabled = 1;
+    }
+    else {}
+    if (localStorage.getItem('userAdress') != null) {
+      adressCheckbox.checked = true;
+      adressCheckbox.disabled = 1;
+    }
+    else {}
+    if (localStorage.getItem('userAge') != null) {
+      ageCheckbox.checked = true;
+      ageCheckbox.disabled = 1;
+    }
+    else {}
+    if (localStorage.getItem('userPosition') != null) {
+      positionCheckbox.checked = true;
+      positionCheckbox.disabled = 1;
+    }
+    else {}
+    if (localStorage.getItem('userSurname') != null) {
+      surnameCheckbox.checked = true;
+      surnameCheckbox.disabled = 1;
+    }
+    else {}
+  }
+$(document).ready(setCheckboxes);
+</script>
+</body>
+</html>
